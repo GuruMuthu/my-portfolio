@@ -9,10 +9,10 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",      // 🔴 Replace
-        "YOUR_TEMPLATE_ID",     // 🔴 Replace
+        "service_5m5abc",
+        "template_1xyz89",
         e.target,
-        "YOUR_PUBLIC_KEY"       // 🔴 Replace
+        "GkWm8pAbcDf123"
       )
       .then(
         () => {
