@@ -10,10 +10,12 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  // useEffect(() => {
+  //   AOS.init({ duration: 700, once: true });
+  // }, []);
   useEffect(() => {
-    AOS.init({ duration: 700, once: true });
+    AOS.init({ duration: 1000 });
   }, []);
-
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <Navbar />
