@@ -1,5 +1,6 @@
 import emailjs from "emailjs-com";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("");
