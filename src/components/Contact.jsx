@@ -1,41 +1,29 @@
+import emailjs from "emailjs-com";
 import { useState } from "react";
-import emailjs from 'emailjs-com';
 
 export default function ContactForm() {
   const [status, setStatus] = useState("");
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-//     const formData = {
-//       name: e.target.name.value,
-//       email: e.target.email.value,
-//       message: e.target.message.value,
-//     };
-
-//     // 👉 This is where you paste the fetch code
-//     const response = await fetch("/api/contact", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(formData),
-//     });
-
-//     const result = await response.json();
-//     setStatus(result.message);
-//   };
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY')
-    .then((result) => {
-        alert('Message sent!');
-    }, (error) => {
-        alert('Failed to send message, please try again.');
-    });
-
-  e.target.reset();
-};
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID",      // 🔴 Replace
+        "YOUR_TEMPLATE_ID",     // 🔴 Replace
+        e.target,
+        "YOUR_PUBLIC_KEY"       // 🔴 Replace
+      )
+      .then(
+        () => {
+          setStatus("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          setStatus("Failed to send message");
+        }
+      );
+  };
 
   return (
     <form className="bg-gray-800 p-6 rounded-lg space-y-4" onSubmit={handleSubmit}>
